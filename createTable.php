@@ -4,9 +4,14 @@ ini_set('display_errors', 1);
 
 require_once 'DBConn.php';   // include the connection
 
-// 1. Drop the table (delete it completely) so we start fresh
-$drop = "DROP TABLE IF EXISTS tbl_user";
-mysqli_query($conn, $drop);
+// 1. Drop tables in the correct order (child tables first)
+$drop_clothes = "DROP TABLE IF EXISTS tbl_clothes";
+mysqli_query($conn, $drop_clothes);
+
+$drop_user = "DROP TABLE IF EXISTS tbl_user";
+if (!mysqli_query($conn, $drop_user)) {
+    die("Error dropping tbl_user: " . mysqli_error($conn));
+}
 
 // 2. Create the table with the same structure we designed
 $create = "CREATE TABLE tbl_user (
