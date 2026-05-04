@@ -1,8 +1,9 @@
 -- Drop tables in reverse FK order
-DROP TABLE IF EXISTS tbl_clothes;
-DROP TABLE IF EXISTS tbl_user;
+--DROP TABLE IF EXISTS tbl_clothes;
+--DROP TABLE IF EXISTS tbl_user;
 
-CREATE TABLE tbl_user (
+
+CREATE TABLE IF NOT EXISTS tbl_user (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -12,7 +13,7 @@ CREATE TABLE tbl_user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE tbl_clothes (
+CREATE TABLE IF NOT EXISTS tbl_clothes (
     clothes_id INT AUTO_INCREMENT PRIMARY KEY,
     seller_id INT,
     title VARCHAR(200) NOT NULL,
@@ -25,6 +26,7 @@ CREATE TABLE tbl_clothes (
 
 -- Insert 30 users 
 INSERT INTO tbl_user (full_name, email, password_hash, role, is_verified) VALUES
+('Admin User', 'admin@pastimes.co.za', '21232f297a57a5a743894a0e4a801fc3', 'admin', 1);
 ('John Doe','j.doe@abc.co.za','29ef52e7563626a96cea7f4b4085c124','buyer',1),
 ('Jane Smith','jane.smith@xyz.co.za','5f4dcc3b5aa765d61d8327deb882cf99','buyer',1),
 ... up to 30 entries ...

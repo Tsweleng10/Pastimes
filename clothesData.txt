@@ -1,0 +1,5 @@
+1	Winter boots	women's winter leather boots with Ziper	289.00	winterBoots.jpeg
+1	Vintage Denim Jacket	Classic Levi's denim, minor wear	350.00	jacket.jpg
+2	Summer Dress	Floral print, excellent condition	120.00	dress.jpg
+2	Leather Boots	Branded boots, size 8	450.00	boots.jpg
+3	Designer Handbag	Luxury brand, with dust bag	900.00	handbag.jpg
